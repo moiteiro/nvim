@@ -18,6 +18,11 @@ Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" === Javascript syntax checker and linter
+Plug 'dense-analysis/ale'
+" ===== javascript syntax highlight
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 " === A Vim game to be better
 Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
@@ -32,6 +37,8 @@ set number relativenumber
 set scrolloff=10
 
 set laststatus=2
+" shows 80 char limit line
+set colorcolumn=81
 
 " Shows a menu when using tab completion
 set wildmenu
@@ -91,6 +98,20 @@ let g:go_metalinter_autosave = 1
 " shows the function's signature of which the cursor is under
 let g:go_auto_type_info = 1
 
+" ---- Javascript ---- "
+autocmd FileType json setlocal ts=4 sts=4 sw=4
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2
+
+let b:ale_fixers = { 'javascript':  ['prettier', 'eslint'] }
+" Fix files on save
+let g:ale_fix_on_save = 1
+
+" ---- CSS ---- "
+autocmd FileType css setlocal ts=4 sts=4 sw=4
+
+" ---- HTML ---- "
+autocmd FileType html setlocal ts=4 sts=4 sw=4
 
 " -------------- OTHER --------------- "
 
